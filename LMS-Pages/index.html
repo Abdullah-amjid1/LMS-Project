@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body class="bg-[#e8f1f2] p-10 flex gap-10 overflow-hidden">
+  <section class="bg-[#00173d] w-[20%] h-full rounded-3xl px-10 pt-3 pb-[250px] flex flex-col gap-10" >
+        <div class="flex items-center justify-between ">
+            <div class="w-[50%]">
+                <img src="/Pictures/Logo.png" alt="" class="w-full">
+            </div>
+            <div>
+                <button><i class="ri-menu-line text-white text-4xl bg-blue-900 px-2 py-2 rounded-full"></i></button>
+            </div>
+        </div>
+        <div class="w-full border-2 border-white flex justify-center rounded-xl gap-9 py-3">
+            <div class="w-[60px] h-[60px]">
+                <img class="w-full h-full rounded-full" src="https://img.freepik.com/premium-photo/passport-photo-portrait-young-man-white-background_1028938-330516.jpg" alt="" >
+            </div>
+            <div>
+                <p class="font-bold text-white text-2xl">Hi, Alex</p>
+                <p class="text-xl text-white">E173037</p>
+            </div>
+        </div>
+        <div class="w-full flex flex-col gap-7">
+            <a class="flex w-full bg-[#e8f1f2] py-2 rounded-xl items-center justify-start gap-8 px-4" href="">
+                <i class="ri-home-4-line text-4xl"></i>
+                <p class=" text-xl">Home</p>
+            </a>
+            
+            <a class="flex w-full bg-[#e8f1f2] py-2 rounded-xl items-center justify-start gap-8 px-4" href="/LMS-Pages/My_Courses.html">
+                <i class="ri-git-repository-line text-4xl"></i>
+                <p class=" text-xl">My Courses</p>
+            </a>
+
+            <a class="flex w-full bg-[#e8f1f2] py-2 rounded-xl items-center justify-start gap-8 px-4" href="">
+                <i class="ri-file-text-fill text-4xl"></i>
+                <p class=" text-xl">Assignment</p>
+            </a>
+
+            <a class="flex w-full bg-[#e8f1f2] py-2 rounded-xl items-center justify-start gap-8 px-4" href="">
+                <i class="ri-calendar-schedule-line text-4xl"></i>
+                <p class=" text-xl">Time Table</p>
+            </a>
+            
+            <a class="flex w-full bg-[#e8f1f2] py-2 rounded-xl items-center justify-start gap-8 px-4" href="/LMS-Pages/Forum.html">
+                <i class="ri-survey-line text-4xl"></i>
+                <p class=" text-xl">Forum</p>
+            </a>
+            <a class="flex w-full bg-[#e8f1f2] py-2 rounded-xl items-center justify-start gap-8 px-4" href="">
+                <i class="ri-settings-5-fill text-4xl"></i>
+                <p class=" text-xl">Settings</p>
+            </a>
+
+        </div>
+  </section>
+  <section class="w-full flex flex-col ">
+    <header class="w-full flex items-center justify-between mt-5 mb-2">
+        <p class="text-4xl font-bold">Dashboard</p>
+        <div class="flex gap-6">
+            <a href="" class="text-4xl"><i class="ri-notification-3-line" onclick="notifyBar(event)"></i></a>
+            <a href="" class="text-4xl"><i class="ri-chat-ai-line"></i></a>
+        </div>
+    </header>
+
+    <main class="flex flex-col gap-9">
+        <div>
+            <p class="text-2xl font-bold">Welcome Back, Alex</p>
+        </div>
+        <div class="w-full bg-[#00173d] overflow-hidden rounded-3xl h-full flex items-center " >
+            <img src="https://as2.ftcdn.net/jpg/08/33/77/93/1000_F_833779353_ZnkbGfiKk16g28L7XG64rhTWc2ybT80p.jpg" alt="" class="object-cover w-full">
+        </div>
+        <div class="flex justify-start gap-10">
+            <a href="" class="flex px-10 bg-green-800 items-center w-[20%] rounded-md py-8 text-white text-lg gap-2"><i class="ri-file-list-3-fill text-2xl px-3 py-2 rounded-full border-2 border-white bg-green-900 "></i><p>Diploma in English OXF/ENG/01</p></a>
+           
+            <a href="" class="flex px-10 bg-green-800 items-center w-[20%] rounded-md py-8 text-white text-lg gap-2"><i class="ri-file-list-3-fill text-2xl px-3 py-2 rounded-full border-2 border-white bg-green-900 "></i><p>Diploma in English OXF/ENG/01</p></a>
+
+            <a href="" class="flex px-10 bg-green-800 items-center w-[25%] rounded-md py-8 text-white text-lg gap-2"><i class="ri-file-list-3-fill text-2xl px-3 py-2 rounded-full border-2 border-white bg-green-900 "></i><p>Diploma in English OXF/ENG/01</p></a>
+        </div>
+        <div class="flex justify-start gap-10">
+            <div class="flex w-[40%] bg-[#00173d] text-white  text-2xl font-semibold justify-between px-2 py-4 rounded-xl">
+                <p>Module Progress:</p>
+                <p>90%</p>
+            </div>
+            <div class="flex w-[40%] bg-[#00173d] text-white text-2xl font-semibold justify-between px-2 py-4 rounded-xl">
+                <p>Assignment Progress :</p>
+                <p>10%</p>
+            </div>
+        </div>
+        <div class="flex justify-start gap-10 ">
+            <div class="flex w-[40%] bg-[#00173d] text-white text-2xl font-semibold justify-between px-2 py-4 rounded-xl">
+                <p>Attendance Progress :</p>
+                <p>97%</p>
+            </div>
+
+            <div class="flex w-[40%] bg-[#00173d] text-white text-2xl font-semibold justify-between px-2 py-4 rounded-xl">
+                <p>Course Progress:</p>
+                <p>50%</p>
+            </div>
+        </div>
+    </main>
+  </section>
+  <div class="w-[300px]  bg-blue-200 px-3 absolute top-[120px] -right-[100%] pb-3 rounded-b-xl transition-full duration-300" id="notify">
+    <table class="">
+        <div class="flex justify-between pt-2"> <p class=" pb-2">Notification</p> <button class="bg-white"><i class="ri-close-fill px-1 " onclick="Close(event)"></i></button></div>
+        <tr class="flex">
+            <div class="flex gap-2 text-sm">
+                <div class="w-[60px] h-[60px] rounded-full"><img class="w-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrb4k8sCGqkOkaYu73mHza61oPSOeYPpK8XLxS5WvGErivtdwYUAdbcN-qalOsTDjn6IU&usqp=CAU" alt=""></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+        </tr>
+        <tr class="flex">
+            <div class="flex gap-2 text-sm">
+                <div class="w-[60px] h-[60px] rounded-full"><img class="w-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrb4k8sCGqkOkaYu73mHza61oPSOeYPpK8XLxS5WvGErivtdwYUAdbcN-qalOsTDjn6IU&usqp=CAU" alt=""></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+        </tr>
+
+        <tr class="flex">
+            <div class="flex gap-2 text-sm">
+                <div class="w-[60px] h-[60px] rounded-full"><img class="w-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrb4k8sCGqkOkaYu73mHza61oPSOeYPpK8XLxS5WvGErivtdwYUAdbcN-qalOsTDjn6IU&usqp=CAU" alt=""></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            </div>
+        </tr>
+    </table>
+  </div>
+</body>
+    <script src="index.js"></script>
+
+
+</html>
+
+
