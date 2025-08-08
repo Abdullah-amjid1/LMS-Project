@@ -1,38 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unviversity LMS | Sign-Up</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>University LMS | Sign-Up</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 <body class="bg-zinc-300 w-full h-screen flex items-center justify-center">
-    <form action="" class="bg-white w-[40%] h-[70%] rounded-3xl px-20  flex flex-col gap-12">
-        <div class="w-full flex flex-col items-center">
-            <img src="https://res.cloudinary.com/daxqn8cov/image/upload/v1754610672/Logo_rmntn3.png" alt="">
-            <p class="text-2xl font-bold">Sign Up Your Account</p>
-        </div>
-        <div class="w-full flex flex-col gap-2">
-            <label for="username" class="font-bold text-lg">User Name</label>
-            <input type="text" name="Email"  class="bg-zinc-200 px-3 py-3 rounded-xl focus:outline-none" >
-            <label for="email" class="font-bold text-lg">Email</label>
-            <input type="email" name="Email"  class="bg-zinc-200 px-3 py-3 rounded-xl focus:outline-none" >
-            <label for="Password" class="font-bold text-lg">Password</label>
-            <div class="bg-zinc-200 px-3 py-3 rounded-xl flex">
-                <input type="password"  id="password" class="w-full focus:outline-none bg-transparent">
-                <button><i class="ri-eye-fill hidden"></i><i class="ri-eye-off-fill"></i></button>
-            </div>
-        </div>
+  <form class="bg-white w-[40%] rounded-3xl px-20 pb-6 flex flex-col gap-8" id="signupForm">
+    <div class="w-full flex flex-col items-center">
+      <img src="https://res.cloudinary.com/daxqn8cov/image/upload/v1754610672/Logo_rmntn3.png" alt="Logo" />
+      <p class="text-2xl font-bold">Sign Up Your Account</p>
+    </div>
 
-        <div class="flex flex-col gap-4">
-            <button class="w-full bg-[#00173d] py-3 rounded-xl text-white text-xl font-bold">Sign in</button>
-            <p>Already have Account?<a href="../index.html" class="font-bold"> Sign in</a></p>
-        </div>
+    <div class="w-full flex flex-col gap-2">
+      <label for="username" class="font-bold text-lg">User Name</label>
+      <input type="text" name="username" id="username" class="bg-zinc-200 px-3 py-3 rounded-xl focus:outline-none" required />
 
+      <label for="email" class="font-bold text-lg">Email</label>
+      <input type="email" name="email" id="email" class="bg-zinc-200 px-3 py-3 rounded-xl focus:outline-none" required />
 
+      <label for="password" class="font-bold text-lg">Password</label>
+      <div class="bg-zinc-200 px-3 py-3 rounded-xl flex">
+        <input type="password" name="password" id="password" class="w-full focus:outline-none bg-transparent" required />
+        <button type="button" onclick="showpassword()">
+          <i class="ri-eye-fill hidden" id="eyeOpen"></i>
+          <i class="ri-eye-off-fill" id="eyeClose"></i>
+        </button>
+      </div>
+    </div>
 
-    </form>
-  
+    <div class="flex flex-col gap-4">
+      <button type="submit" class="w-full bg-[#00173d] py-3 rounded-xl text-white text-xl font-bold">Sign Up</button>
+      <p class="text-center">Already have an account? <a href="../index.html" class="font-bold">Sign in</a></p>
+    </div>
+
+    <!-- ✅ Status Message -->
+    <p id="status" class="text-center text-sm text-red-600 font-semibold"></p>
+  </form>
+
+  <!-- ✅ Firebase Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCG_iZVsOrx1peyOI0HG_oRmMhECanK2N4",
+      authDomain: "learning-management-syst-a09ea.firebaseapp.com",
+      databaseURL: "https://learning-management-syst-a09ea-default-rtdb.firebaseio.com",
+      projectId: "learning-management-syst-a09ea",
+      storageBucket: "learning-management-syst-a09ea.appspot.com",
+      messagingSenderId: "1059629213271",
+      appId: "1:1059629213271:web:5408924835243fe721a512"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    document.getElementById("signupForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const status = document.getElementById("status");
+
+      status.innerText = "";
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        await set(ref(db, "users/" + user.uid), {
+          Username: username,
+          Email: email
+        });
+
+        status.innerText = "✅ Account created successfully!";
+        status.classList.remove("text-red-600");
+        status.classList.add("text-green-600");
+        document.getElementById("signupForm").reset();
+      } catch (error) {
+        console.error("❌ Error:", error.message);
+        status.innerText = `❌ ${error.message}`;
+        status.classList.remove("text-green-600");
+        status.classList.add("text-red-600");
+      }
+    });
+  </script>
+
+  <!-- ✅ Password Show/Hide -->
+  <script>
+    function showpassword() {
+      const input = document.getElementById("password");
+      const eyeOpen = document.getElementById("eyeOpen");
+      const eyeClose = document.getElementById("eyeClose");
+
+      if (input.type === "password") {
+        input.type = "text";
+        eyeOpen.classList.remove("hidden");
+        eyeClose.classList.add("hidden");
+      } else {
+        input.type = "password";
+        eyeOpen.classList.add("hidden");
+        eyeClose.classList.remove("hidden");
+      }
+    }
+  </script>
 </body>
 </html>

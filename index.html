@@ -23,10 +23,7 @@
             </div>
         </div>
         <div>
-            <div class="w-full flex gap-2">
-                <input type="checkbox"  id="" class="w-4 bg-zinc-200">
-                <p class="">Remember My Perference</p>
-            </div>
+
             <div class="pt-2">
                 <a href="Forms/Forget-Password.html" class="font-semibold text-sm md:text-lg md:font-bold">Forgot Password?</a>
             </div>
@@ -39,6 +36,55 @@
 
 
     </form>
+    <script type="module">
+  // Import Firebase SDKs
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
+
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCG_iZVsOrx1peyOI0HG_oRmMhECanK2N4",
+    authDomain: "learning-management-syst-a09ea.firebaseapp.com",
+    databaseURL: "https://learning-management-syst-a09ea-default-rtdb.firebaseio.com",
+    projectId: "learning-management-syst-a09ea",
+    storageBucket: "learning-management-syst-a09ea.firebasestorage.app",
+    messagingSenderId: "1059629213271",
+    appId: "1:1059629213271:web:5408924835243fe721a512",
+    measurementId: "G-E8Y7RBL53D"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+
+  // Handle Sign-in
+  const signInForm = document.querySelector("form");
+  signInForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const email = document.querySelector("input[name='Email']").value.trim();
+    const password = document.querySelector("#showPassword").value.trim();
+
+    if (!email || !password) {
+      alert("Please enter email and password!");
+      return;
+    }
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Sign in successful
+        console.log("User signed in:", userCredential.user);
+        window.location.href = "/LMS-Pages/Home.html"; // Redirect page
+      })
+      .catch((error) => {
+        alert("Invalid Email or Password!");
+        console.error(error.code, error.message);
+      });
+  });
+</script>
+
 </body>
     <script src="Fuction.js"></script>
 </html>

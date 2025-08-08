@@ -1,3 +1,4 @@
+
 function notifyBar(event)
 {
     event.preventDefault();
@@ -65,3 +66,4 @@ function showpassword() {
     eyeOpen.classList.toggle("hidden");
     eyeClose.classList.toggle("hidden");
 }
+
