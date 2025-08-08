@@ -8,27 +8,27 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 <body class="bg-zinc-300 w-full h-screen flex items-center justify-center">
-    <form action="" class="bg-white w-[40%] h-[70%] rounded-3xl px-20  flex flex-col gap-8">
+    <form action="" class="bg-white w-[90%] md:w-[60%]  xl:w-[40%]  rounded-3xl py-5 px-4 md:px-10 xl:px-20  flex flex-col gap-3 md:gap-8">
         <div class="w-full flex flex-col items-center">
             <img src="https://res.cloudinary.com/daxqn8cov/image/upload/v1754610672/Logo_rmntn3.png" alt="">
-            <p class="text-2xl font-bold">Sign in Your Account</p>
+            <p class=" text-xl sm:text-2xl font-bold">Sign in Your Account</p>
         </div>
-        <div class="w-full flex flex-col gap-4">
-            <label for="email" class="font-bold text-lg">Email</label>
+        <div class="w-full flex flex-col md:gap-4">
+            <label for="email" class="font-semibold text-sm md:font-bold  md:text-lg">Email</label>
             <input type="email" name="Email"  class="bg-zinc-200 px-3 py-3 rounded-xl focus:outline-none" >
-            <label for="Password" class="font-bold text-lg">Password</label>
+            <label for="Password" class="font-semibold text-sm md:font-bold md:text-lg">Password</label>
             <div class="bg-zinc-200 px-3 py-3 rounded-xl flex">
-                <input type="password"  id="password" class="w-full focus:outline-none bg-transparent">
-                <button><i class="ri-eye-fill hidden"></i><i class="ri-eye-off-fill"></i></button>
+                <input type="password"  id="showPassword" class="w-full focus:outline-none bg-transparent">
+                <button onclick="showpassword()" type="button"><i class="ri-eye-fill  hidden" id="eyeOpen"></i><i class="ri-eye-off-fill" id="eyeClose"></i></button>
             </div>
         </div>
         <div>
             <div class="w-full flex gap-2">
                 <input type="checkbox"  id="" class="w-4 bg-zinc-200">
-                <p>Remember My Perference</p>
+                <p class="">Remember My Perference</p>
             </div>
             <div class="pt-2">
-                <a href="Forms/Forget-Password.html" class="font-bold">Forgot Password?</a>
+                <a href="Forms/Forget-Password.html" class="font-semibold text-sm md:text-lg md:font-bold">Forgot Password?</a>
             </div>
         </div>
         <div class="flex flex-col gap-4">
@@ -39,6 +39,6 @@
 
 
     </form>
-  
 </body>
+    <script src="Fuction.js"></script>
 </html>
