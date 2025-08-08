@@ -44,7 +44,7 @@ function verification(event)
             Error.classList.remove("visible");
             Error1.classList.add("invisible");
             Error1.classList.remove("visible");
-            window.location.href = "/Forms/OTP.html";  
+            window.location.href = "Forms/OTP.html";  
         }
         
     }
